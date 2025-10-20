@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig>
+  <Tracking>
+    <ImageTarget name="majorasmaskJose" size="0.150000 0.084375" />
+    <ImageTarget name="toonlink" size="0.250000 0.140625" />
+    <ImageTarget name="majorasmask" size="0.250000 0.140625" />
+    <ImageTarget name="link-rider" size="0.250000 0.140625" />
+    <ImageTarget name="charizard" size="2.000000 1.124444" />
+    <ImageTarget name="mesa" size="1.000000 0.750000" />
+    <ImageTarget name="caja2" size="1.000000 0.750000" />
+  </Tracking>
+</QCARConfig>
