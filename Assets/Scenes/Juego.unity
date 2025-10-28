@@ -1237,7 +1237,7 @@ MonoBehaviour:
   targetName: {fileID: 2004245555}
   scoreText: {fileID: 1596256878}
   livesText: {fileID: 92525519}
-  targetABuscar: ImgTarToonLink
+  targetABuscar: 
   vidas: 3
   puntuacion: 0
   opciones: []
