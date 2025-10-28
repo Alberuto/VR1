@@ -1,7 +1,8 @@
-using UnityEngine;
-using UnityEngine.UI;
 using System.Collections.Generic;
 using TMPro;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 public class GameController : MonoBehaviour{
 
     public TextMeshProUGUI targetName;
@@ -11,71 +12,43 @@ public class GameController : MonoBehaviour{
     public string targetABuscar;
     public int vidas = 3;
     public int puntuacion = 0;
-    public List<string> opciones = new List<string>() { "majoras", "toon", "horse" };
+    public List<string> opciones = new List<string>() { "majorasmaskJose", "toonlink", "link-rider" };
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start() {
-        
-        //[] majoras, toon, linkhorse
 
-      //  targetABuscar = "Link de" + "Majoras";
         generarSiguienteTarget();
-
         ActualizarUI();
     }
-
     void ActualizarUI() { 
     
         targetName.text = "Busca a: " + targetABuscar;
-
         scoreText.text = "Puntuacion: " + puntuacion;
-
         livesText.text = "Vidas: " + vidas;
-    
     }
     public void OnTargetFound(string targetReconocido) {
 
-        //mostrar el target reconocido y depuracion
-        
-        scoreText.text = targetReconocido;
-
         if (targetReconocido == targetABuscar){
 
-            ActualizarPuntuacion();
+            puntuacion++;
             generarSiguienteTarget();
-
         }
-        else { 
-            
-            ActualizarVidas();
-            if (vidas == 0) {
-                //gAmE OvEr
+        else {
+
+            vidas--;
+            if (vidas == 0) 
                 GameOver();
-            }
-        
         }
-
         ActualizarUI();
     }
-    void GameOver() { 
-        
+    void GameOver() {
 
-
-        
-        
+        Debug.Log("Fin del juego");
+        SceneManager.LoadScene(0);
     }
     void generarSiguienteTarget() {
+
         int posicionRandom = Random.Range(0, opciones.Count);
         targetABuscar = opciones[posicionRandom];
-    
-    }
-    public void ActualizarVidas() {
-
-        vidas--;
-    }
-    public void ActualizarPuntuacion() {
-        
-        puntuacion++;
-        
     }
 }
