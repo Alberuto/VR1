@@ -21,14 +21,8 @@ public class ImageTargetHandler : MonoBehaviour{
         if (status.Status == Status.TRACKED){
 
             gameController.OnTargetFound(behaviour.TargetName);
-           // gameController.ActualizarPuntuacion();
         }
-       /* else {
-            gameController.ActualizarVidas();
-        }*/
-
     }
-    // Update is called once per frame
     void Update(){
         
     }

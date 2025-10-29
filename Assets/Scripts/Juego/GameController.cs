@@ -46,7 +46,13 @@ public class GameController : MonoBehaviour{
     }
     void GameOver() {
 
-        SceneManager.LoadScene(0);
+        if (puntuacion >= 3)
+            PlayerPrefs.SetString("resultado", "ganado");
+        else
+            PlayerPrefs.SetString("resultado", "perdido");
+
+        PlayerPrefs.Save();
+        SceneManager.LoadScene(2);
     }
     void generarSiguienteTarget() {
 
