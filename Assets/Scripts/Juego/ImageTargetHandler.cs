@@ -6,7 +6,6 @@ public class ImageTargetHandler : MonoBehaviour{
     private ObserverBehaviour observerBehaviour;
     private GameController gameController;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start(){
 
         observerBehaviour = GetComponent<ObserverBehaviour>();
@@ -15,12 +14,9 @@ public class ImageTargetHandler : MonoBehaviour{
         if (observerBehaviour) {
 
             observerBehaviour.OnTargetStatusChanged += OnTargetStatusChanged;        
-        
         }
-
     }
     private void OnTargetStatusChanged(ObserverBehaviour behaviour, TargetStatus status){
-
 
         if (status.Status == Status.TRACKED){
 

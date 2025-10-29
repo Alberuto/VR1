@@ -12,9 +12,8 @@ public class GameController : MonoBehaviour{
     public string targetABuscar;
     public int vidas = 3;
     public int puntuacion = 0;
-    public List<string> opciones = new List<string>() { "majorasmaskJose", "toonlink", "link-rider" };
+    private List<string> opciones = new List<string>() { "majorasmaskJose", "toonlink", "link-rider" };
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start() {
 
         generarSiguienteTarget();
@@ -31,6 +30,10 @@ public class GameController : MonoBehaviour{
         if (targetReconocido == targetABuscar){
 
             puntuacion++;
+
+            if (puntuacion >= 3)
+                GameOver();
+
             generarSiguienteTarget();
         }
         else {
@@ -43,12 +46,18 @@ public class GameController : MonoBehaviour{
     }
     void GameOver() {
 
-        Debug.Log("Fin del juego");
         SceneManager.LoadScene(0);
     }
     void generarSiguienteTarget() {
 
-        int posicionRandom = Random.Range(0, opciones.Count);
-        targetABuscar = opciones[posicionRandom];
+        if (opciones.Count > 0){
+
+            int posicionRandom = Random.Range(0, opciones.Count);
+            targetABuscar = opciones[posicionRandom];
+            opciones.RemoveAt(posicionRandom);
+        }
+        else {
+            GameOver();
+        }
     }
 }

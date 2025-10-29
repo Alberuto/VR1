@@ -871,7 +871,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -6689036041284674117, guid: 4b9dcf8fc4bcf734a923416204efd6bf, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 4b9dcf8fc4bcf734a923416204efd6bf, type: 3}
       propertyPath: m_LocalScale.x
@@ -1240,7 +1240,6 @@ MonoBehaviour:
   targetABuscar: 
   vidas: 3
   puntuacion: 0
-  opciones: []
 --- !u!4 &1226470712
 Transform:
   m_ObjectHideFlags: 0
@@ -1270,7 +1269,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -6689036041284674117, guid: 8486f0d320bca3346be79d196f69f4bc, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 8486f0d320bca3346be79d196f69f4bc, type: 3}
       propertyPath: m_LocalScale.x
@@ -2439,7 +2438,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -6689036041284674117, guid: bb1118b7e3cd90446ba6b1c6749848e2, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: bb1118b7e3cd90446ba6b1c6749848e2, type: 3}
       propertyPath: m_LocalScale.x
