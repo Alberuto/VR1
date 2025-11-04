@@ -23,7 +23,4 @@ public class ImageTargetHandler : MonoBehaviour{
             gameController.OnTargetFound(behaviour.TargetName);
         }
     }
-    void Update(){
-        
-    }
 }
