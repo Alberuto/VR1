@@ -1,3 +1,5 @@
+using JetBrains.Annotations;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -12,8 +14,8 @@ public class endGame : MonoBehaviour{
     void Start(){
 
         string resultado = PlayerPrefs.GetString("resultado", "perdido");
-        int vidas = PlayerPrefs.GetInt("puntuacionFinal");
-        int puntos = PlayerPrefs.GetInt("vidasRestantes");
+        int puntos = PlayerPrefs.GetInt("puntuacionFinal");
+        int vidas = PlayerPrefs.GetInt("vidasRestantes");
 
         if (resultado == "ganado")
             mensajeCorrecto.SetActive(true);

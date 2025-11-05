@@ -9,7 +9,7 @@ public class GameController : MonoBehaviour{
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI livesText;
 
-    public float tiempoRestante = 30f;
+    public float tiempoRestante;
     public TextMeshProUGUI timerText;
 
     public AudioClip sonidoAcierto;
@@ -17,12 +17,18 @@ public class GameController : MonoBehaviour{
     private AudioSource audioSource;
 
     public string targetABuscar;
-    public int vidas = 3;
-    public int puntuacion = 0;
-    private List<string> opciones = new List<string>() { "majorasmaskJose", "toonlink", "link-rider" };
+    static public int vidas, puntuacion;
+    static public List<string> opciones;
 
     void Start() {
+
         audioSource = GetComponent<AudioSource>();
+
+        opciones = new List<string>() { "majorasmaskJose", "toonlink", "link-rider" };
+        tiempoRestante = 30f;
+        vidas = 3;
+        puntuacion = 0;
+
         generarSiguienteTarget();
         ActualizarUI();
     }
@@ -40,12 +46,13 @@ public class GameController : MonoBehaviour{
         if (targetReconocido == targetABuscar){
 
             puntuacion++;
-            audioSource.PlayOneShot(sonidoAcierto);
+            generarSiguienteTarget();
+
+            audioSource.PlayOneShot(sonidoAcierto);//falla
 
             if (puntuacion >= 3)
                 GameOver();
 
-            generarSiguienteTarget();
         }
         else {
 
@@ -77,6 +84,7 @@ public class GameController : MonoBehaviour{
             int posicionRandom = Random.Range(0, opciones.Count);
             targetABuscar = opciones[posicionRandom];
             opciones.RemoveAt(posicionRandom);
+            ActualizarUI();
         }
         else {
             GameOver();
@@ -92,15 +100,5 @@ public class GameController : MonoBehaviour{
         }
         timerText.text = "Tiempo: " + Mathf.CeilToInt(tiempoRestante);
         ActualizarUI();
-    }
-    void Awake(){
-
-        // Evita duplicados si esta escena se recarga o Vuforia crea otro
-        if (FindObjectsOfType<GameController>().Length > 1)
-        {
-            Destroy(gameObject);
-            return;
-        }
-        DontDestroyOnLoad(gameObject);
     }
 }
